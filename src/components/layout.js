@@ -17,6 +17,9 @@ function Layout({ pageTitle, children }) {
           title
         }
       }
+      markdownRemark {
+        html
+      }
     }
   `);
 
@@ -49,6 +52,7 @@ function Layout({ pageTitle, children }) {
         <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}></div>
     </div>
   );
 }

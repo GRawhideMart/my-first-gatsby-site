@@ -13,6 +13,30 @@ module.exports = {
         path: `${__dirname}/blog`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `audio`,
+        path: `${__dirname}/audio`,
+      },
+    },
     "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-audio",
+            options: {
+              preload: "auto",
+              loop: false,
+              controls: true,
+              muted: false,
+              autoplay: false,
+            },
+          },
+        ],
+      },
+    },
   ],
 };
